@@ -5,6 +5,7 @@
   const $ = (sel, root = document) => root.querySelector(sel);
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const fmt = (n) => Math.round(n).toLocaleString("en-US");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---------- header, footer, depth gauge ---------- */
   const NAV = [
@@ -70,6 +71,79 @@
     if (z) z.textContent = zoneName(m);
     if (dot) dot.style.top = p * 100 + "%";
     if (window.__ocean) { window.__ocean.scroll = window.scrollY; window.__ocean.progress = p; }
+    headerOnScroll();
+    heroOnScroll();
+  }
+
+  /* ---------- scroll effects ---------- */
+  let lastY = window.scrollY;
+  function headerOnScroll() {
+    const h = $("#site-header");
+    if (!h) return;
+    const y = window.scrollY;
+    h.classList.toggle("scrolled", y > 40);
+    if (!h.classList.contains("open")) {
+      if (y > lastY + 6 && y > 240) h.classList.add("hide");       // scrolling down: tuck away
+      else if (y < lastY - 6 || y <= 240) h.classList.remove("hide"); // scrolling up: come back
+    }
+    lastY = y;
+  }
+
+  function heroOnScroll() {
+    if (page !== "home" || reduceMotion) return;
+    const inner = $(".hero-inner"), cue = $(".scroll-cue");
+    const y = window.scrollY, fade = Math.max(0, 1 - y / (window.innerHeight * 0.75));
+    if (inner) { inner.style.transform = `translateY(${(-y * 0.18).toFixed(1)}px)`; inner.style.opacity = fade.toFixed(3); }
+    if (cue) cue.style.opacity = Math.max(0, 1 - y / 200).toFixed(3);
+  }
+
+  function reveal() {
+    if (reduceMotion || !("IntersectionObserver" in window)) return;
+    const sel = [".page-hero > *", ".section h2", ".feature", ".home-more", ".about-grid > *", ".expertise article",
+      ".descent li", ".zone", ".work", ".contact-list > div", ".form", ".cs-hero > *", ".cs-section", ".pager", ".cta"].join(",");
+    const els = [...document.querySelectorAll(sel)];
+    document.documentElement.classList.add("reveal-ready");
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); obs.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+    els.forEach((el) => {
+      const sibs = [...el.parentElement.children].filter((c) => els.includes(c));
+      el.setAttribute("data-reveal", "");
+      el.style.setProperty("--d", Math.min(sibs.indexOf(el), 5) * 90 + "ms");
+      io.observe(el);
+    });
+  }
+
+  /* ---------- hero roles: typed one at a time ---------- */
+  function typedRoles() {
+    const host = $(".hero-roles");
+    if (!host || reduceMotion) return;
+    const spans = [...host.querySelectorAll("span")];
+    const roles = spans.map((el) => el.textContent.trim());
+    if (!roles.length) return;
+    spans.forEach((el) => el.classList.add("sr-only")); // screen readers still get all three
+    const typed = document.createElement("span");
+    typed.className = "typed";
+    typed.setAttribute("aria-hidden", "true");
+    const caret = document.createElement("span");
+    caret.className = "caret";
+    caret.setAttribute("aria-hidden", "true");
+    host.append(typed, caret);
+    let r = 0, i = 0, erasing = false;
+    const tick = () => {
+      const word = roles[r];
+      if (!erasing) {
+        i++;
+        typed.textContent = word.slice(0, i);
+        if (i === word.length) { erasing = true; return setTimeout(tick, 1800); }
+        return setTimeout(tick, 65);
+      }
+      i--;
+      typed.textContent = word.slice(0, i);
+      if (i === 0) { erasing = false; r = (r + 1) % roles.length; return setTimeout(tick, 380); }
+      return setTimeout(tick, 28);
+    };
+    setTimeout(tick, 1500);
   }
 
   /* ---------- optional background footage ---------- */
@@ -219,6 +293,8 @@
   featured();
   projectPage();
   contact();
+  typedRoles();
+  reveal();
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);

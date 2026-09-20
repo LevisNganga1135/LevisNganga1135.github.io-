@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Levis Nganga — Software Engineer</title>
+  <meta name="description" content="Levis Nganga is a full-stack software engineer in Nairobi building web apps and APIs with Python and JavaScript.">
+  <meta name="theme-color" content="#04121f">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="home" data-scene="hero" data-tint="0" data-depth-from="0" data-depth-to="300">
+  <!-- Optional footage: drop a looping clip at assets/video/deep-sea.mp4 and it plays behind the creatures. -->
+  <video id="seaVideo" class="sea-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+    <source src="assets/video/deep-sea.mp4" type="video/mp4">
+  </video>
+  <canvas id="ocean" aria-hidden="true"></canvas>
+  <div class="tint" aria-hidden="true"></div>
+  <a class="skip" href="#main">Skip to content</a>
+  <header id="site-header"></header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-inner">
+          <h1><span>Hello, I'm</span> <span>Levis Nganga.</span></h1>
+          <p class="hero-roles">
+            <span>A Software Engineer.</span>
+            <span>A Full-Stack Builder.</span>
+            <span>A Python and JavaScript Developer.</span>
+          </p>
+          <p class="hero-lede">I'm a software engineering student at Moringa School in Nairobi. I build web apps and APIs, from React interfaces to Flask and Node back ends, and I ship them live.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="works.html">See my work</a>
+            <a class="btn" href="about.html">About me</a>
+          </div>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#latest">Keep descending</a>
+    </section>
+
+    <section id="latest" class="section">
+      <div class="wrap">
+        <div id="featured"></div>
+        <div class="home-more">
+          <a class="btn" href="works.html">All projects</a>
+          <a class="btn btn-quiet" href="contact.html">Get in touch</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/ocean.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

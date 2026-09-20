@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About — Levis Nganga</title>
+  <meta name="description" content="About Levis Nganga: software engineering student at Moringa School, Nairobi. Education, expertise and skills.">
+  <meta name="theme-color" content="#04121f">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="about" data-scene="deep" data-tint="0.5" data-depth-from="1000" data-depth-to="4000">
+  <canvas id="ocean" aria-hidden="true"></canvas>
+  <div class="tint" aria-hidden="true"></div>
+  <a class="skip" href="#main">Skip to content</a>
+  <header id="site-header"></header>
+
+  <main id="main">
+    <div class="wrap page-hero">
+      <p class="mono-label">My story</p>
+      <h1>About Me</h1>
+      <p class="lede">Writing code that ships, and learning in the open.</p>
+    </div>
+
+    <section class="section" style="padding-top:1.5rem">
+      <div class="wrap about-grid">
+        <div class="porthole">
+          <div class="porthole-glass">
+            <img src="assets/images/levis.jpg" alt="Levis Nganga wearing sunglasses and a black shirt, smiling under a wall light" width="1000" height="1333">
+          </div>
+        </div>
+        <div class="about-copy">
+          <p class="hi">Hello, I'm</p>
+          <h2>Levis Nganga</h2>
+          <p class="role">Software Engineer · Full-Stack</p>
+          <p>I'm a software engineering student at Moringa School in Nairobi, Kenya. I mostly build with Python and JavaScript, and I like projects where a whole stack has to come together: a React interface, an API behind it, a database underneath, and a deployment people can actually open.</p>
+          <p>I work well in teams. My projects run on feature branches, pull requests and automated tests, and I've shipped shared work like Mama Oliech Restaurant with teammates. Right now I'm building Feel The Burn, a fitness tracker with a diet planner built around Kenyan food.</p>
+          <div class="about-actions">
+            <a class="btn btn-primary" href="contact.html">Get in touch</a>
+            <a class="btn" href="https://github.com/LevisNganga1135" target="_blank" rel="noopener">GitHub profile</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2>My Expertise</h2>
+        <div class="expertise">
+          <article>
+            <h3>Full-Stack Web</h3>
+            <p class="sub">React · Flask · Node.js</p>
+            <p>Building complete products, from a React interface with charts and forms to the API and database that power it.</p>
+          </article>
+          <article>
+            <h3>APIs and Data</h3>
+            <p class="sub">REST · PostgreSQL · Auth</p>
+            <p>Designing REST APIs with SQL databases, JWT sign-in, passkeys and per-user ownership checks so data stays private.</p>
+          </article>
+          <article>
+            <h3>Teamwork and Quality</h3>
+            <p class="sub">Git · pytest · Pull requests</p>
+            <p>Collaborating through feature branches and code review, and backing changes with tests before they merge.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2>Education Journey</h2>
+        <ol class="descent">
+          <li>
+            <span class="lvl">Primary school</span>
+            <h3>Valley Crest School</h3>
+          </li>
+          <li>
+            <span class="lvl">High school</span>
+            <h3>Northgate Schools</h3>
+          </li>
+          <li>
+            <span class="lvl">Campus</span>
+            <h3>Moringa School<span class="now">Now</span></h3>
+            <p>Software engineering, Nairobi</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2>Skills and Expertise</h2>
+        <div class="zones">
+          <div class="zone">
+            <div><h3>Sunlight zone</h3><p class="range">Daily drivers</p></div>
+            <ul class="tags"><li>Python</li><li>JavaScript</li><li>React</li><li>Flask</li><li>HTML and CSS</li><li>Git and GitHub</li></ul>
+          </div>
+          <div class="zone">
+            <div><h3>Twilight zone</h3><p class="range">Comfortable</p></div>
+            <ul class="tags"><li>Node.js and Express</li><li>PostgreSQL</li><li>SQLAlchemy</li><li>Knex</li><li>REST API design</li><li>pytest</li><li>JWT authentication</li></ul>
+          </div>
+          <div class="zone">
+            <div><h3>Midnight zone</h3><p class="range">Going deeper</p></div>
+            <ul class="tags"><li>WebAuthn passkeys</li><li>Deploying on Vercel and Render</li><li>M-Pesa payments</li><li>Data visualisation with Recharts</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/ocean.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

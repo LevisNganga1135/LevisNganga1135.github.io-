@@ -9,7 +9,7 @@ window.SITE = {
   name: "Levis Nganga",
   role: "Software Engineer",
   location: "Nairobi, Kenya",
-  email: "your.email@example.com", // <- replace with your real email
+  email: "leviskariuki2@gmail.com", // <- replace with your real email
   github: "https://github.com/LevisNganga1135",
 
   projects: [

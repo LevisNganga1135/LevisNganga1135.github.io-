@@ -22,7 +22,7 @@
       header.className = "site-header";
       header.innerHTML = `
         <a class="brand" href="index.html" aria-label="${esc(S.name)} — home">
-          <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="3" fill="currentColor"/><circle cx="16" cy="16" r="8.5" fill="none" stroke="currentColor" stroke-opacity=".6"/><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-opacity=".3"/></svg>
+          <img class="brand-mark" src="assets/images/logo.jpg" alt="" width="36" height="36">
           <span>${esc(S.name)}</span>
         </a>
         <button class="nav-toggle" aria-expanded="false" aria-controls="nav"><span class="sr-only">Toggle navigation</span><i></i><i></i></button>

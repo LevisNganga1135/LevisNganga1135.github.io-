@@ -60,7 +60,7 @@ ul, ol, dl { margin: 0; padding: 0; }
   background: linear-gradient(rgba(1, 10, 18, 0.72), rgba(1, 10, 18, 0));
 }
 .brand { display: inline-flex; align-items: center; gap: 0.7rem; font-family: var(--f-display); font-size: 1.3rem; font-weight: 500; text-decoration: none; }
-.brand-mark { width: 28px; height: 28px; color: var(--biolume); }
+.brand-mark { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 2px solid var(--biolume); box-shadow: 0 0 14px rgba(79, 240, 230, 0.45); flex: none; }
 .nav { display: flex; gap: clamp(1rem, 3vw, 2.4rem); }
 .nav a { display: flex; flex-direction: column; text-decoration: none; line-height: 1.2; padding: 0.2rem 0; border-bottom: 1px solid transparent; }
 .nav-label { font-weight: 600; font-size: 0.98rem; }
